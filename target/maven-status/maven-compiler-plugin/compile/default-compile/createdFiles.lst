@@ -1,0 +1,14 @@
+spring\api\jpa\controller\MayBayController.class
+spring\api\jpa\repository\MayBayRepository.class
+spring\api\jpa\controller\ChuyenBayController.class
+spring\api\jpa\entity\MayBay.class
+spring\api\jpa\SrpingApiJpaApplication.class
+spring\api\jpa\entity\ChungNhan.class
+spring\api\jpa\entity\ChungNhanPK.class
+spring\api\jpa\entity\ChuyenBay.class
+spring\api\jpa\repository\NhanVienRepository.class
+spring\api\jpa\controller\NhanVienController.class
+spring\api\jpa\entity\NhanVien.class
+spring\api\jpa\controller\ChungNhanController.class
+spring\api\jpa\repository\ChungNhanRepository.class
+spring\api\jpa\repository\ChuyenBayRepository.class

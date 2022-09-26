@@ -15,7 +15,7 @@ import spring.api.jpa.entity.ChuyenBay;
 @Transactional
 public interface ChuyenBayRepository extends JpaRepository<ChuyenBay, String>{
 //	4
-	List<spring.api.jpa.entity.ChuyenBay> findAllByGaDen(String gaDen);
+	List<ChuyenBay> findAllByGaDen(String gaDen);
 	@Query(nativeQuery = true, value = "select * from chuyenbay where do_dai < ?1 and do_dai > ?2")
 	List<ChuyenBay> findByCondition(int cond1, int cond2);
 //	5
