@@ -1,0 +1,50 @@
+version: '3.9'
+services:
+    mysql:
+        image: mysql
+        ports:
+            - '6033:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+            MYSQL_RANDOM_ROOT_PASSWORD: 1
+            MYSQL_DATABASE: spring-jpa
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: admin
+        volumes:
+            - dbdata:/var/lib/mysql
+        networks:
+            - mysql
+    phpmyadmin:
+        image: phpmyadmin
+        ports:
+            - '8080:80'
+        environment:
+            PMA_HOST: mysql
+            PMA_PORT: 3306
+            PMA_ARBITRARY: 1
+        restart: always
+        networks:
+            - mysql
+        depends_on:
+            - mysql
+    spring-api-jpa:
+        build: .
+        volumes:
+            - spring-api-jpa:/opt/app
+        networks:
+            - mysql
+        environment:
+            SPRING_DATASOURCE_USERNAME: admin
+            SPRING_DATASOURCE_PASSWORD: admin
+        ports:
+            - '8081:8081'
+        depends_on:
+            - mysql
+
+volumes:
+    dbdata:
+    spring-api-jpa:
+networks:
+    mysql:
+        driver: bridge
